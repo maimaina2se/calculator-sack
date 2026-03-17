@@ -51,9 +51,8 @@ is accessible on desktop and Android browsers (mobile-friendly with dark mode).
 
 Live access:
 
-```
 https://maimaina2se.github.io/calculator-sack/
-```
+
 
 ## Features
 
