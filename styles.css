@@ -117,7 +117,7 @@ h1 {
 
 .metric-split {
   padding-right: 16px;
-  border-right: 1px solid var(--line);
+  border-right: 2px solid var(--accent-dark);
 }
 
 .metric-sub {
@@ -370,7 +370,7 @@ button.ghost {
     padding-right: 0;
     border-right: none;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 2px solid var(--accent-dark);
   }
 
   .hero-card {
