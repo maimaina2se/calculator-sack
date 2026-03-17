@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f6f1e8"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#12110f"
+    />
+    <title>Kalkulator Konversi Sak</title>
+    <meta
+      name="description"
+      content="Kalkulator sederhana untuk konversi harga per sak ke harga per kg dan keuntungan."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="brand">
+          <div class="badge">BekoLab</div>
+          <p class="tagline">Kalkulator Konversi & Keuntungan</p>
+        </div>
+        <h1>Hitung cepat harga per kg dan keuntungan per sak.</h1>
+        <p class="lead">
+          Masukkan harga per sak, total kilogram, dan harga jual. Semua hasil
+          muncul otomatis dan bisa disalin.
+        </p>
+        <div class="hero-card">
+          <div class="metric">
+            <p class="metric-label">Harga per kg</p>
+            <p id="hargaPerKgHero" class="metric-value">Rp 0</p>
+          </div>
+          <div class="metric">
+            <p class="metric-label">Keuntungan per kg</p>
+            <p id="keuntunganPerKgHero" class="metric-value">Rp 0</p>
+          </div>
+          <div class="metric highlight">
+            <p class="metric-label">Keuntungan per sak</p>
+            <p id="keuntunganPerSakHero" class="metric-value">Rp 0</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="calculator">
+        <div class="panel">
+          <h2>Masukkan Data</h2>
+          <form id="calcForm" autocomplete="off">
+            <label class="field">
+              <span>Harga per sak</span>
+              <div class="input-wrap">
+                <span class="prefix">Rp</span>
+                <input
+                  id="hargaPerSak"
+                  type="text"
+                  inputmode="decimal"
+                  placeholder="Contoh: 1.250.000"
+                  aria-label="Harga per sak"
+                />
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Total kg</span>
+              <div class="input-wrap">
+                <input
+                  id="totalKg"
+                  type="text"
+                  inputmode="decimal"
+                  placeholder="Contoh: 50"
+                  aria-label="Total kilogram"
+                />
+                <span class="suffix">kg</span>
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Harga jual per kg</span>
+              <div class="input-wrap">
+                <span class="prefix">Rp</span>
+                <input
+                  id="hargaJual"
+                  type="text"
+                  inputmode="decimal"
+                  placeholder="Contoh: 28.000"
+                  aria-label="Harga jual per kg"
+                />
+              </div>
+            </label>
+
+            <div class="actions">
+              <button id="resetBtn" type="button" class="ghost">Reset</button>
+            </div>
+          </form>
+
+          <div class="formula">
+            <h3>Rumus</h3>
+            <p>Harga per sak : total kg = harga per kg</p>
+            <p>Harga jual - harga per kg = keuntungan per kg</p>
+            <p>Keuntungan per kg x total kg = keuntungan per sak</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>
+          Dibuat sederhana untuk belajar GitHub Pages. Selamat mencoba!
+        </p>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
