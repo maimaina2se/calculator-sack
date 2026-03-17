@@ -115,6 +115,11 @@ h1 {
   color: var(--accent-dark);
 }
 
+.metric-split {
+  padding-right: 16px;
+  border-right: 1px solid var(--line);
+}
+
 .metric-sub {
   margin: 6px 0 0;
   font-size: 0.85rem;
@@ -359,6 +364,11 @@ button.ghost {
 
   .actions button {
     width: 100%;
+  }
+
+  .metric-split {
+    padding-right: 0;
+    border-right: none;
   }
 
   .hero-card {
