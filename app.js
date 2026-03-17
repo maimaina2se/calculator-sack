@@ -112,6 +112,7 @@ function resetForm() {
     hargaPlastikBundleInput.value = "";
   }
   updateResults();
+  syncTotalKgWidth();
 }
 
 function countDigits(text) {
@@ -251,6 +252,14 @@ function formatInputWithCaret(input, allowDecimal) {
   input.setSelectionRange(pos, pos);
 }
 
+function syncTotalKgWidth() {
+  if (!totalKgInput) return;
+  const placeholder = totalKgInput.getAttribute("placeholder") || "";
+  const baseText = totalKgInput.value || placeholder;
+  const length = Math.max(baseText.length, 4);
+  totalKgInput.style.width = `${length}ch`;
+}
+
 const inputConfigs = [
   { input: hargaPerSakInput, allowDecimal: false },
   { input: totalKgInput, allowDecimal: true },
@@ -264,12 +273,16 @@ inputConfigs
     input.addEventListener("input", () => {
       formatInputWithCaret(input, allowDecimal);
       updateResults();
+      if (input === totalKgInput) {
+        syncTotalKgWidth();
+      }
     });
   });
 
 resetBtn.addEventListener("click", resetForm);
 
 updateResults();
+syncTotalKgWidth();
 
 if (formulaDetails && window.matchMedia) {
   const mq = window.matchMedia("(max-width: 720px)");
