@@ -255,8 +255,44 @@ button.ghost {
   border: 1px dashed var(--formula-border);
 }
 
-.panel .formula {
+.formula-collapsible {
   margin-top: 18px;
+}
+
+.formula-collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 2px;
+}
+
+.formula-collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+.formula-collapsible > summary::after {
+  content: "+";
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.formula-collapsible[open] > summary::after {
+  content: "-";
+}
+
+.formula-collapsible .formula {
+  margin-top: 6px;
+}
+
+@media (min-width: 721px) {
+  .formula-collapsible > summary {
+    display: none;
+  }
 }
 
 .formula h3 {
