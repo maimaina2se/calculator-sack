@@ -1,6 +1,6 @@
 # Calculator Sack
 
-Calculator web sederhana untuk menghitung harga per Kg dan keuntungan per sak.
+Calculator web sederhana untuk menghitung harga per Kg dan keuntungan per Sack.
 Halaman ini bisa diakses lewat browser di komputer atau Android (mobile-friendly
 dan mendukung dark mode).
 
@@ -16,23 +16,23 @@ https://maimaina2se.github.io/calculator-sack/
 - Dark mode otomatis (mobile selalu dark)
 - Tampilan responsif untuk layar kecil
 - Ikon web untuk shortcut di mobile (PWA)
-- Hitung biaya plastik per Kg dan per sak (opsional)
+- Hitung biaya plastik per Kg dan per Sack (opsional)
 
 ## Rumus
 
-- Harga per sak / total Kg = harga per Kg
+- Harga per Sack / total Kg = harga per Kg
 - Harga jual per Kg - harga per Kg = keuntungan per Kg
-- Keuntungan per Kg x total Kg = keuntungan per sak
+- Keuntungan per Kg x total Kg = keuntungan per Sack
 - Harga plastik 1 bundle = 5 pack
 - 1 pack = 34 plastik
 - 1 Kg = 1 plastik
 - Biaya plastik per Kg = harga bundle / 170
-- Biaya plastik per sak = biaya plastik per Kg x total Kg
+- Biaya plastik per Sack = biaya plastik per Kg x total Kg
 
 ## Cara Pakai
 
 1. Buka `index.html` di browser (atau akses URL web jika sudah di-host).
-2. Isi `Harga per sak`, `Total Kg`, dan `Harga jual per Kg`.
+2. Isi `Harga per Sack`, `Total Kg`, dan `Harga jual per Kg`.
 3. Jika ingin hitung plastik, isi `Harga plastik per bundle`.
 4. Hasil akan muncul otomatis.
 
