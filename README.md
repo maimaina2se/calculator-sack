@@ -14,27 +14,34 @@ https://maimaina2se.github.io/calculator-sack/
 
 - Hitung otomatis tanpa tombol submit
 - Format Rupiah (IDR)
-- Dark mode otomatis mengikuti sistem
+- Dark mode otomatis (mobile selalu dark)
 - Tampilan responsif untuk layar kecil
+- Hitung biaya plastik per kg dan per sak (opsional)
 
 ## Rumus
 
-- Harga per sak ÷ total kg = harga per kg
-- Harga jual per kg − harga per kg = keuntungan per kg
-- Keuntungan per kg × total kg = keuntungan per sak
+- Harga per sak / total kg = harga per kg
+- Harga jual per kg - harga per kg = keuntungan per kg
+- Keuntungan per kg x total kg = keuntungan per sak
+- Harga plastik 1 bundle = 5 pack
+- 1 pack = 34 plastik
+- 1 kg = 1 plastik
+- Biaya plastik per kg = harga bundle / 170
+- Biaya plastik per sak = biaya plastik per kg x total kg
 
 ## Cara Pakai
 
 1. Buka `index.html` di browser (atau akses URL web jika sudah di-host).
 2. Isi `Harga per sak`, `Total kg`, dan `Harga jual per kg`.
-3. Hasil akan muncul otomatis.
+3. Jika ingin hitung plastik, isi `Harga plastik per bundle`.
+4. Hasil akan muncul otomatis.
 
 ## Struktur File
 
-- `index.html` — Tampilan utama
-- `styles.css` — Desain + dark mode + mobile friendly
-- `app.js` — Logika perhitungan
-- `README.md` — Deskripsi proyek
+- `index.html` - Tampilan utama
+- `styles.css` - Desain + dark mode + mobile friendly
+- `app.js` - Logika perhitungan
+- `README.md` - Deskripsi proyek
 
 ---
 
@@ -53,24 +60,31 @@ https://maimaina2se.github.io/calculator-sack/
 
 - Auto calculation without submit button
 - Rupiah (IDR) formatting
-- Automatic dark mode
+- Automatic dark mode (mobile always dark)
 - Responsive layout for small screens
+- Plastic cost per kg and per sack (optional)
 
 ## Formulas
 
-- Price per sack ÷ total kg = price per kg
-- Selling price per kg − price per kg = profit per kg
-- Profit per kg × total kg = profit per sack
+- Price per sack / total kg = price per kg
+- Selling price per kg - price per kg = profit per kg
+- Profit per kg x total kg = profit per sack
+- 1 plastic bundle = 5 packs
+- 1 pack = 34 plastics
+- 1 kg = 1 plastic
+- Plastic cost per kg = bundle price / 170
+- Plastic cost per sack = plastic cost per kg x total kg
 
 ## How to Use
 
 1. Open `index.html` in a browser (or visit the hosted URL).
 2. Fill in `Price per sack`, `Total kg`, and `Selling price per kg`.
-3. Results update automatically.
+3. To calculate plastic cost, fill `Plastic bundle price`.
+4. Results update automatically.
 
 ## File Structure
 
-- `index.html` — Main layout
-- `styles.css` — Styling + dark mode + mobile friendly
-- `app.js` — Calculation logic
-- `README.md` — Project description
+- `index.html` - Main layout
+- `styles.css` - Styling + dark mode + mobile friendly
+- `app.js` - Calculation logic
+- `README.md` - Project description

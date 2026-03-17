@@ -37,20 +37,32 @@
         <h1>Hitung cepat harga per kg dan keuntungan per sak.</h1>
         <p class="lead">
           Masukkan harga per sak, total kilogram, dan harga jual. Semua hasil
-          muncul otomatis dan bisa disalin.
+          muncul otomatis.
         </p>
         <div class="hero-card">
           <div class="metric">
             <p class="metric-label">Harga per kg</p>
             <p id="hargaPerKgHero" class="metric-value">Rp 0</p>
+            <p class="metric-sub">
+              Total harga per kg:
+              <span id="totalHargaPerKgHero">Rp 0</span>
+            </p>
           </div>
           <div class="metric">
             <p class="metric-label">Keuntungan per kg</p>
             <p id="keuntunganPerKgHero" class="metric-value">Rp 0</p>
+            <p class="metric-sub">
+              Keuntungan per kg bersih:
+              <span id="keuntunganPerKgBersihHero">Rp 0</span>
+            </p>
           </div>
           <div class="metric highlight">
             <p class="metric-label">Keuntungan per sak</p>
             <p id="keuntunganPerSakHero" class="metric-value">Rp 0</p>
+            <p class="metric-sub">
+              Keuntungan per sak bersih:
+              <span id="keuntunganPerSakBersihHero">Rp 0</span>
+            </p>
           </div>
         </div>
       </section>
@@ -106,12 +118,42 @@
             </div>
           </form>
 
+          <div class="mini-panel">
+            <h3>Plastik (Opsional)</h3>
+            <label class="field">
+              <span>Harga plastik per bundle (isi 5 pack)</span>
+              <div class="input-wrap">
+                <span class="prefix">Rp</span>
+                <input
+                  id="hargaPlastikBundle"
+                  type="text"
+                  inputmode="decimal"
+                  placeholder="Contoh: 85.000"
+                  aria-label="Harga plastik per bundle"
+                />
+              </div>
+            </label>
+            <div class="result-row">
+              <p>Biaya plastik per kg</p>
+              <p id="plastikPerKg" class="result-value">-</p>
+            </div>
+            <div class="result-row">
+              <p>Biaya plastik per sak</p>
+              <p id="plastikPerSak" class="result-value">-</p>
+            </div>
+          </div>
+
           <details class="formula-collapsible" open>
             <summary>Rumus</summary>
             <div class="formula">
               <p>Harga per sak : total kg = harga per kg</p>
               <p>Harga jual - harga per kg = keuntungan per kg</p>
               <p>Keuntungan per kg x total kg = keuntungan per sak</p>
+              <p>Harga plastik 1 bundle = 5 pack</p>
+              <p>1 pack = 34 plastik</p>
+              <p>1 kg = 1 plastik</p>
+              <p>Biaya plastik per kg = harga bundle / 170</p>
+              <p>Biaya plastik per sak = biaya plastik per kg x total kg</p>
             </div>
           </details>
         </div>
@@ -119,7 +161,7 @@
 
       <footer class="footer">
         <p>
-          Build by maimaina2se: Dibuat untuk menghitung harga per kg, keuntungan
+          Build by Maimaina2se: Dibuat untuk menghitung harga per kg, keuntungan
           per kg, dan keuntungan per sak secara cepat.
         </p>
       </footer>
