@@ -11,6 +11,7 @@ const keuntunganPerKgHeroEl = document.getElementById("keuntunganPerKgHero");
 const keuntunganPerSakHeroEl = document.getElementById("keuntunganPerSakHero");
 
 const resetBtn = document.getElementById("resetBtn");
+const formulaDetails = document.querySelector(".formula-collapsible");
 
 const rupiah = new Intl.NumberFormat("id-ID", {
   style: "currency",
@@ -75,3 +76,20 @@ function resetForm() {
 resetBtn.addEventListener("click", resetForm);
 
 updateResults();
+
+if (formulaDetails && window.matchMedia) {
+  const mq = window.matchMedia("(max-width: 720px)");
+  const syncFormula = () => {
+    if (mq.matches) {
+      formulaDetails.removeAttribute("open");
+    } else {
+      formulaDetails.setAttribute("open", "");
+    }
+  };
+  syncFormula();
+  if (mq.addEventListener) {
+    mq.addEventListener("change", syncFormula);
+  } else if (mq.addListener) {
+    mq.addListener(syncFormula);
+  }
+}
