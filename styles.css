@@ -369,6 +369,8 @@ button.ghost {
   .metric-split {
     padding-right: 0;
     border-right: none;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
   }
 
   .hero-card {
