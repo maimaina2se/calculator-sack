@@ -1,11 +1,14 @@
-# calculator-sack
-calculator to calculate how much profit per sack of commodities.
-
 # Kalkulator Sack
 
 Kalkulator web sederhana untuk menghitung harga per kg dan keuntungan per sak.
 Halaman ini bisa diakses lewat browser di komputer atau Android (mobile-friendly
 dan mendukung dark mode).
+
+Akses langsung:
+
+```
+https://maimaina2se.github.io/calculator-sack/
+```
 
 ## Fitur
 
@@ -24,7 +27,7 @@ dan mendukung dark mode).
 
 1. Buka `index.html` di browser (atau akses URL web jika sudah di-host).
 2. Isi `Harga per sak`, `Total kg`, dan `Harga jual per kg`.
-3. Hasil akan muncul otomatis dan bisa disalin.
+3. Hasil akan muncul otomatis.
 
 ## Struktur File
 
@@ -39,6 +42,12 @@ dan mendukung dark mode).
 
 A simple web calculator to compute price per kg and profit per sack. The page
 is accessible on desktop and Android browsers (mobile-friendly with dark mode).
+
+Live access:
+
+```
+https://maimaina2se.github.io/calculator-sack/
+```
 
 ## Features
 
@@ -57,7 +66,7 @@ is accessible on desktop and Android browsers (mobile-friendly with dark mode).
 
 1. Open `index.html` in a browser (or visit the hosted URL).
 2. Fill in `Price per sack`, `Total kg`, and `Selling price per kg`.
-3. Results update automatically and can be copied.
+3. Results update automatically.
 
 ## File Structure
 
