@@ -1,6 +1,6 @@
 {
-  "name": "Kalkulator Konversi Sak",
-  "short_name": "Kalkulator Sak",
+  "name": "Calculator Konversi Sak",
+  "short_name": "Calculator Sak",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
