@@ -79,14 +79,19 @@ h1 {
   font-size: clamp(2.2rem, 2.8vw + 1.5rem, 3.6rem);
   line-height: 1.05;
   font-weight: 700;
-  max-width: 680px;
+  max-width: none;
+  width: 100%;
+  text-align: center;
 }
 
 .lead {
   margin: 0;
   font-size: 1.05rem;
   color: var(--muted);
-  max-width: 540px;
+  max-width: none;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-card {
@@ -129,6 +134,17 @@ h1 {
 .metric-sub span {
   color: var(--ink);
   font-weight: 600;
+}
+
+.metric-sub-strong {
+  color: var(--accent-dark);
+  font-weight: 700;
+  background: var(--surface);
+  border: 1px solid var(--accent-dark);
+  padding: 2px 8px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-left: 4px;
 }
 
 .calculator {
@@ -286,10 +302,6 @@ button.ghost {
 }
 
 .metric.highlight .metric-value {
-  color: var(--highlight);
-}
-
-.metric.highlight .metric-sub span {
   color: var(--highlight);
 }
 
