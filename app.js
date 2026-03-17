@@ -145,3 +145,34 @@ if (formulaDetails && window.matchMedia) {
     mq.addListener(syncFormula);
   }
 }
+
+function blurActiveInput() {
+  const active = document.activeElement;
+  if (!active) return;
+  if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") {
+    active.blur();
+  }
+}
+
+let touchStartY = 0;
+document.addEventListener(
+  "touchstart",
+  (event) => {
+    if (event.touches.length === 1) {
+      touchStartY = event.touches[0].clientY;
+    }
+  },
+  { passive: true }
+);
+
+document.addEventListener(
+  "touchmove",
+  (event) => {
+    if (event.touches.length !== 1) return;
+    const deltaY = Math.abs(event.touches[0].clientY - touchStartY);
+    if (deltaY > 10) {
+      blurActiveInput();
+    }
+  },
+  { passive: true }
+);
