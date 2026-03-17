@@ -15,6 +15,7 @@ https://maimaina2se.github.io/calculator-sack/
 - Format Rupiah (IDR)
 - Dark mode otomatis (mobile selalu dark)
 - Tampilan responsif untuk layar kecil
+- Ikon web untuk shortcut di mobile (PWA)
 - Hitung biaya plastik per kg dan per sak (opsional)
 
 ## Rumus
@@ -40,6 +41,8 @@ https://maimaina2se.github.io/calculator-sack/
 - `index.html` - Tampilan utama
 - `styles.css` - Desain + dark mode + mobile friendly
 - `app.js` - Logika perhitungan
+- `manifest.webmanifest` - Konfigurasi PWA
+- `icons/` - Ikon web & shortcut
 - `README.md` - Deskripsi proyek
 
 ---
@@ -60,6 +63,7 @@ https://maimaina2se.github.io/calculator-sack/
 - Rupiah (IDR) formatting
 - Automatic dark mode (mobile always dark)
 - Responsive layout for small screens
+- Web icon for mobile shortcut (PWA)
 - Plastic cost per kg and per sack (optional)
 
 ## Formulas
@@ -85,4 +89,6 @@ https://maimaina2se.github.io/calculator-sack/
 - `index.html` - Main layout
 - `styles.css` - Styling + dark mode + mobile friendly
 - `app.js` - Calculation logic
+- `manifest.webmanifest` - PWA configuration
+- `icons/` - Web & shortcut icons
 - `README.md` - Project description
