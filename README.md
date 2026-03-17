@@ -1,4 +1,4 @@
-# Kalkulator Sack
+# Calculator Sack
 
 Kalkulator web sederhana untuk menghitung harga per kg dan keuntungan per sak.
 Halaman ini bisa diakses lewat browser di komputer atau Android (mobile-friendly
