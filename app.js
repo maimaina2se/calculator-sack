@@ -114,15 +114,157 @@ function resetForm() {
   updateResults();
 }
 
-[
-  hargaPerSakInput,
-  totalKgInput,
-  hargaJualInput,
-  hargaPlastikBundleInput,
-]
-  .filter(Boolean)
-  .forEach((input) => {
-    input.addEventListener("input", updateResults);
+function countDigits(text) {
+  return (text.match(/\d/g) || []).length;
+}
+
+function detectDecimalSeparator(raw, allowDecimal) {
+  if (!allowDecimal) return null;
+  const cleaned = raw.replace(/\s/g, "");
+  if (cleaned.includes(",")) return ",";
+  const dotMatches = cleaned.match(/\./g);
+  if (dotMatches && dotMatches.length === 1) {
+    const dotIndex = cleaned.indexOf(".");
+    const right = cleaned.slice(dotIndex + 1);
+    if (right.length <= 2) {
+      return ".";
+    }
+  }
+  return null;
+}
+
+function splitNumberParts(raw, allowDecimal) {
+  const cleaned = raw.replace(/\s/g, "");
+  const digitsOnly = cleaned.replace(/\D/g, "");
+  if (!allowDecimal) {
+    return { intPart: digitsOnly, decPart: "", hasDecimal: false };
+  }
+
+  const decimalSeparator = detectDecimalSeparator(cleaned, allowDecimal);
+  if (!decimalSeparator) {
+    return { intPart: digitsOnly, decPart: "", hasDecimal: false };
+  }
+
+  const sepIndex = cleaned.indexOf(decimalSeparator);
+  const left = cleaned.slice(0, sepIndex);
+  const right = cleaned.slice(sepIndex + 1);
+  return {
+    intPart: left.replace(/\D/g, ""),
+    decPart: right.replace(/\D/g, ""),
+    hasDecimal: true,
+  };
+}
+
+function addThousandSeparators(digits) {
+  if (!digits) return "";
+  return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+function formatInputValue(raw, allowDecimal) {
+  const cleaned = raw.replace(/\s/g, "");
+  const digitsCount = cleaned.replace(/\D/g, "").length;
+  const { intPart, decPart, hasDecimal } = splitNumberParts(
+    cleaned,
+    allowDecimal
+  );
+
+  if (!hasDecimal && digitsCount === 0) {
+    return "";
+  }
+
+  const needsLeadingZero = hasDecimal && intPart.length === 0;
+  const formattedInt = addThousandSeparators(
+    needsLeadingZero ? "0" : intPart
+  );
+
+  if (!allowDecimal) return formattedInt;
+
+  if (decPart) {
+    return `${formattedInt},${decPart}`;
+  }
+
+  if (hasDecimal) {
+    return `${formattedInt},`;
+  }
+
+  return formattedInt;
+}
+
+function caretPosForDigits(formattedInt, digitsBefore) {
+  if (digitsBefore <= 0) return 0;
+  let digitsSeen = 0;
+  for (let i = 0; i < formattedInt.length; i += 1) {
+    if (/\d/.test(formattedInt[i])) {
+      digitsSeen += 1;
+      if (digitsSeen >= digitsBefore) {
+        return i + 1;
+      }
+    }
+  }
+  return formattedInt.length;
+}
+
+function formatInputWithCaret(input, allowDecimal) {
+  const raw = input.value;
+  const caret = input.selectionStart ?? raw.length;
+  const decimalSeparator = detectDecimalSeparator(raw, allowDecimal);
+  let caretInDecimal = false;
+  let intDigitsBefore = 0;
+  let decDigitsBefore = 0;
+
+  if (allowDecimal && decimalSeparator) {
+    const sepIndex = raw.indexOf(decimalSeparator);
+    if (sepIndex !== -1 && caret > sepIndex) {
+      caretInDecimal = true;
+      intDigitsBefore = countDigits(raw.slice(0, sepIndex));
+      decDigitsBefore = countDigits(raw.slice(sepIndex + 1, caret));
+    } else {
+      intDigitsBefore = countDigits(raw.slice(0, caret));
+    }
+  } else {
+    intDigitsBefore = countDigits(raw.slice(0, caret));
+  }
+
+  const formatted = formatInputValue(raw, allowDecimal);
+  if (formatted === raw) return;
+
+  input.value = formatted;
+
+  if (!allowDecimal) {
+    const pos = caretPosForDigits(formatted, intDigitsBefore);
+    input.setSelectionRange(pos, pos);
+    return;
+  }
+
+  const decimalIndex = formatted.indexOf(",");
+  if (caretInDecimal && decimalIndex !== -1) {
+    const maxDecLength = formatted.length - decimalIndex - 1;
+    const pos =
+      decimalIndex + 1 + Math.min(decDigitsBefore, maxDecLength);
+    input.setSelectionRange(pos, pos);
+    return;
+  }
+
+  const intPartFormatted =
+    decimalIndex === -1 ? formatted : formatted.slice(0, decimalIndex);
+  const pos = caretPosForDigits(intPartFormatted, intDigitsBefore);
+  input.setSelectionRange(pos, pos);
+}
+
+const inputConfigs = [
+  { input: hargaPerSakInput, allowDecimal: false },
+  { input: totalKgInput, allowDecimal: true },
+  { input: hargaJualInput, allowDecimal: false },
+  { input: hargaPlastikBundleInput, allowDecimal: false },
+];
+
+inputConfigs
+  .filter(({ input }) => input)
+  .forEach(({ input, allowDecimal }) => {
+    input.addEventListener("input", () => {
+      formatInputWithCaret(input, allowDecimal);
+      updateResults();
+    });
   });
 
 resetBtn.addEventListener("click", resetForm);
